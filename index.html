@@ -12,7 +12,7 @@
   <body>
     <section class="page-header">
       <h1 class="project-name">Middle School Question Solver</h1>
-      <h2 class="project-tagline"></h2>
+      <h2 class="project-tagline">Question Solver</h2>
       <a href="https://github.com/muledeerhunter73/QuestionAnswering" class="btn">View on GitHub</a>
       <a href="https://github.com/muledeerhunter73/QuestionAnswering/zipball/master" class="btn">Download .zip</a>
       <a href="https://github.com/muledeerhunter73/QuestionAnswering/tarball/master" class="btn">Download .tar.gz</a>
@@ -25,17 +25,30 @@
 <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>To learn more about the AI field of natural language processing, I created a website that uses nlp tools and techniques to process a middle school exam history question and try to find the article with the answer on Wikipedia. </p>
+<p>To learn more about the AI field of natural language processing, I created a website that uses nlp tools and techniques to process a middle school exam history question and try to find the answer from Wikipedia.  Currently it returns the Wikipedia article with the answer, but I am working at having the system find the answer in the article.</p>
 
 <h3>
 <a id="so-what-is-this" class="anchor" href="#so-what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>So What is This?</h3>
 
-<p>This is a question answering system for middle school exam questions.  It specifically seeks to find answers to who, where and when questions. It is put together on an interactive website for users to access. The link to the website is included below. <a href="http://muledeerhunter73.pythonanywhere.com">muledeerhunter73.pythonanywhere.com</a>. </p>
+<p>This is a question answering system for middle school exam questions.  It specifically seeks to find answers to who, where and when questions. It is put together on an interactive website for users to access. The link to the website is included below. <a href="http://muledeerhunter73.pythonanywhere.com">muledeerhunter73.pythonanywhere.com</a>.</p>
 
 <h3>
 <a id="why-did-i-do-this" class="anchor" href="#why-did-i-do-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why did I do this?</h3>
 
 <p>Natural Language Processing fascinates me in that it allows computers in a sense to understand humans. I did this project to get my toes in the water of how natural language processing works.  Answers to middle school exam questions are abundant on the web, but they can be difficult to find in all the web content.  I decided to do this to try to get the computer to find the answer for me.</p>
+
+<h3>
+<a id="how-to-use-the-system" class="anchor" href="#how-to-use-the-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use the system?</h3>
+
+<p>The website is really simple to use.  Just go to the website above and type the question you have.  You do not need to worry about putting a question mark at the end of your question.  Also a helpful hit is to capitalize proper nouns, this helps the system in processing the question correctly. After you have entered your question you may need to wait a few seconds for the system to find the answer.</p>
+
+<h3>
+<a id="what-is-going-on-in-the-background" class="anchor" href="#what-is-going-on-in-the-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is going on in the background?</h3>
+
+<p>The website is running a python script which is divided into three main sections.
+1. The first thing the system does is analyze your question into parts of speech.  It does this using a powerful toolkit called <a href="http://nltk.org">nltk</a>. Once it has tagged the question, it extracts the adjectives and nouns to use in the search query to wikipedia.<br>
+2. In order to query the vast knowledge base of Wikipedia the system uses a <a href="https://pypi.python.org/pypi/wikipedia/">Wikipedia API</a>.  This works by using api search functionality with the query to get a list of possible articles.  The system then goes through each of these articles and analyzes the title and first 20 sentences to try to determine the article that has the best chance of having the answer.  It does this by rating the article based on match words, phrases, and other similarities with the query. 
+3. (This is still a work in progress) Once it has found the best article it will then analyze the article using the <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford Named Entity Recognizer</a> to find names, locations, and dates in the article depending on the type of question asked.  It will then analyze around these possible answers looking for words or patterns that match the query that this could be the answer. The system then returns the best answer it found. </p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
