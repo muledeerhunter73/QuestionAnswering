@@ -1,28 +1,39 @@
-<!DOCTYPE html>
-<html lang="en-us">
+<!doctype html>
+<html>
   <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Middle School Question Solver by muledeerhunter73</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
   </head>
   <body>
-    <section class="page-header">
-      <h1 class="project-name">Middle School Question Solver</h1>
-      <h2 class="project-tagline">Can a Computer Be Smarter Than a Fifth Grader?</h2>
-      <a href="https://github.com/muledeerhunter73/QuestionAnswering" class="btn">View on GitHub</a>
-      <a href="https://github.com/muledeerhunter73/QuestionAnswering/zipball/master" class="btn">Download .zip</a>
-      <a href="https://github.com/muledeerhunter73/QuestionAnswering/tarball/master" class="btn">Download .tar.gz</a>
-    </section>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Middle School Question Solver</h1>
+        <p class="header">Can a Computer Be Smarter Than a Fifth Grader?</p>
 
-    <section class="main-content">
-      <h3>
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/muledeerhunter73/QuestionAnswering/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/muledeerhunter73/QuestionAnswering/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/muledeerhunter73/QuestionAnswering">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/muledeerhunter73">muledeerhunter73</a></p>
+
+
+      </header>
+      <section>
+        <h3>
 <a id="introduction" class="anchor" href="#introduction" aria-hidden="true"><span class="octicon octicon-link"></span></a>Introduction</h3>
 
-<p>To learn more about the AI field of natural language processing, I created a website that uses nlp tools and techniques to process a middle school exam history question and try to find the answer from Wikipedia.  Currently it returns the Wikipedia article with the answer, but I am working at having the system find the answer in the article.</p>
+<p>To learn more about the AI field of natural language processing, I set out to create a program that uses NLP tools and techniques to process middle school exam history question and try to find the answer from Wikipedia.  Currently it returns the Wikipedia article with the answer, but I am working at having the system find the answer in the article.</p>
 
 <h3>
 <a id="so-what-is-this" class="anchor" href="#so-what-is-this" aria-hidden="true"><span class="octicon octicon-link"></span></a>So What is This?</h3>
@@ -37,30 +48,42 @@
 <h3>
 <a id="how-to-use-the-system" class="anchor" href="#how-to-use-the-system" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use the system?</h3>
 
-<p>The website is really simple to use.  Just go to the website above and type the question you have.  You do not need to worry about putting a question mark at the end of your question.  Also a helpful hit is to capitalize proper nouns, this helps the system in processing the question correctly. After you have entered your question you may need to wait a few seconds for the system to find the answer.</p>
+<p>The website is really simple to use.  Just go to the website above and type the question you have.  You do not need to worry about putting a question mark at the end of your question.  Also a helpful hint is to capitalize proper nouns, this helps the system in processing the question correctly. After you have entered your question you may need to wait a few seconds for the system to find the article.</p>
+
+<h4>
+<a id="some-good-test-examples" class="anchor" href="#some-good-test-examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Some Good Test Examples</h4>
+
+<ol>
+<li>When were the moon landings?</li>
+<li>Who wrote the United States Declaration of Independence</li>
+<li>
+</ol>
 
 <h3>
 <a id="what-is-going-on-in-the-background" class="anchor" href="#what-is-going-on-in-the-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is going on in the background?</h3>
 
 <p>The website is running a python script which is divided into three main sections.
-1 The first thing the system does is analyze your question into parts of speech.  It does this using a powerful toolkit called <a href="http://nltk.org">nltk</a>. Once it has tagged the question, it extracts the adjectives and nouns to use in the search query to wikipedia.<br>
-2 In order to query the vast knowledge base of Wikipedia the system uses a <a href="https://pypi.python.org/pypi/wikipedia/">Wikipedia API</a>.  This works by using api search functionality with the query to get a list of possible articles.  The system then goes through each of these articles and analyzes the title and first 20 sentences to try to determine the article that has the best chance of having the answer.  It does this by rating the article based on match words, phrases, and other similarities with the query. 
+1 The first thing the system does is analyze your question into parts of speech.  It does this using a powerful toolkit called <a href="http://nltk.org">nltk</a>. Once it has tagged the question, it extracts the adjectives and nouns to use in the search query to Wikipedia.<br>
+2 In order to query the vast knowledge base of Wikipedia the system uses a <a href="https://pypi.python.org/pypi/wikipedia/">Wikipedia API</a>.  This works by using the API search functionality with the query to get a list of possible articles.  The system then goes through each of these articles and analyzes the title and first 20 sentences to try to determine the article that has the best chance of having the answer.  It does this by rating the article based on match words, phrases, and other similarities with the query. 
 3 (This is still a work in progress) Once it has found the best article it will then analyze the article using the <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford Named Entity Recognizer</a> to find names, locations, and dates in the article depending on the type of question asked.  It will then analyze around these possible answers looking for words or patterns that match the query that this could be the answer. The system then returns the best answer it found. </p>
+
+<h3>
+<a id="issues-and-limitations" class="anchor" href="#issues-and-limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues and Limitations</h3>
+
+<p>The system sometimes does not return the correct article. I have been having family and friends test the system so that I can try to find out why it returned the incorrect article and how I can improve it.
+I also have been trying to setup the system to find the answer.  There are great tools out there that can extract named entities such as names and locations.  The issue I have been having is getting these tools integrated into the site I am hosting. <a href="https://www.pythonanywhere.com/">Pythonanywhere</a> is strictly python and many of these tools are written in other languages and include a python interface.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
 
 <p>GitHub Profile Name: muledeerhunter73
 Hadley Westover</p>
-
-      <footer class="site-footer">
-        <span class="site-footer-owner"><a href="https://github.com/muledeerhunter73/QuestionAnswering">Middle School Question Solver</a> is maintained by <a href="https://github.com/muledeerhunter73">muledeerhunter73</a>.</span>
-
-        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
       </footer>
-
-    </section>
-
-  
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
   </body>
 </html>
