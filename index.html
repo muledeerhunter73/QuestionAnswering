@@ -23,7 +23,6 @@
           <li class="download"><a class="buttons" href="https://github.com/muledeerhunter73/QuestionAnswering/zipball/master">Download ZIP</a></li>
           <li class="download"><a class="buttons" href="https://github.com/muledeerhunter73/QuestionAnswering/tarball/master">Download TAR</a></li>
           <li><a class="buttons github" href="https://github.com/muledeerhunter73/QuestionAnswering">View On GitHub</a></li>
-          <li><a class="buttons github" href="http://muledeerhunter73.pythonanywhere.com">Visit Website</a></li>
         </ul>
 
         <p class="header">This project is maintained by <a class="header name" href="https://github.com/muledeerhunter73">muledeerhunter73</a></p>
@@ -63,16 +62,18 @@
 <h3>
 <a id="what-is-going-on-in-the-background" class="anchor" href="#what-is-going-on-in-the-background" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is going on in the background?</h3>
 
-<p>The website is running a python script which is divided into three main sections.
-1 The first thing the system does is analyze your question into parts of speech.  It does this using a powerful toolkit called <a href="http://nltk.org">nltk</a>. Once it has tagged the question, it extracts the adjectives and nouns to use in the search query to Wikipedia.<br>
-2 In order to query the vast knowledge base of Wikipedia the system uses a <a href="https://pypi.python.org/pypi/wikipedia/">Wikipedia API</a>.  This works by using the API search functionality with the query to get a list of possible articles.  The system then goes through each of these articles and analyzes the title and first 20 sentences to try to determine the article that has the best chance of having the answer.  It does this by rating the article based on match words, phrases, and other similarities with the query. 
+<p>The website is running a python script which is divided into three main sections.</p>
+
+<p>1 The first thing the system does is analyze your question into parts of speech.  It does this using a powerful toolkit called <a href="http://nltk.org">nltk</a>. Once it has tagged the question, it extracts the adjectives and nouns to use in the search query to Wikipedia.  </p>
+
+<p>2 In order to query the vast knowledge base of Wikipedia the system uses a <a href="https://pypi.python.org/pypi/wikipedia/">Wikipedia API</a>.  This works by using the API search functionality with the query to get a list of possible articles.  The system then goes through each of these articles and analyzes the title and first 20 sentences to try to determine the article that has the best chance of having the answer.  It does this by rating the article based on match words, phrases, and other similarities with the query. 
 3 (This is still a work in progress) Once it has found the best article it will then analyze the article using the <a href="http://nlp.stanford.edu/software/CRF-NER.shtml">Stanford Named Entity Recognizer</a> to find names, locations, and dates in the article depending on the type of question asked.  It will then analyze around these possible answers looking for words or patterns that match the query that this could be the answer. The system then returns the best answer it found. </p>
 
 <h3>
 <a id="issues-and-limitations" class="anchor" href="#issues-and-limitations" aria-hidden="true"><span class="octicon octicon-link"></span></a>Issues and Limitations</h3>
 
-<p>The system sometimes does not return the correct article. I have been having family and friends test the system so that I can try to find out why it returned the incorrect article and how I can improve it.</p>
-<p>I also have been trying to setup the system to find the answer.  There are great tools out there that can extract named entities such as names and locations.  The issue I have been having is getting these tools integrated into the site I am hosting. <a href="https://www.pythonanywhere.com/">Pythonanywhere</a> is strictly python and many of these tools are written in other languages and include a python interface.</p>
+<p>The system sometimes does not return the correct article. I have been having family and friends test the system so that I can try to find out why it returned the incorrect article and how I can improve it.
+I also have been trying to setup the system to find the answer.  There are great tools out there that can extract named entities such as names and locations.  The issue I have been having is getting these tools integrated into the site I am hosting. <a href="https://www.pythonanywhere.com/">Pythonanywhere</a> is strictly python and many of these tools are written in other languages and include a python interface.</p>
 
 <h3>
 <a id="authors-and-contributors" class="anchor" href="#authors-and-contributors" aria-hidden="true"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
